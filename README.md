@@ -1,6 +1,43 @@
-# Getting Started with Create React App
+# GitHub Commit Activity Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a code assignment by MetaLab for the position of Software Engineer (Web).
+
+The task is to build an SPA using React and Webpack, along with any other tool that may be needed.
+
+The app should allow the user to search public GitHub repositories through an input with autocomplete, showing the results on a popup. Selected repositories will get added to a graph, displaying their commit activity of the last year by weekly intervals.
+
+<img src="./docs/assets/mockup.png" alt="Mock Design" width="600"/>
+
+## Getting Started
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), but packaged with [CRACO](https://craco.js.org) to allow an easier configuration of the project.
+
+1. Install the node dependencies:
+   - Run `npm install`
+2. Set up the [environment variables](#environment-variables):
+   - Copy the file `.env.example` into a `.env` file
+   - Add your custom variables (a GitHub API Token is required, [create one here](https://github.com/settings/tokens))
+3. Start the development server:
+   - Run `npm start`
+   - Go to [http://localhost:3000](http://localhost:3000)
+
+## Tasks
+
+1. [x] Create a `README.md` file with instructions on how to run the app
+2. [ ] Create `PRE_ASSIGNMENT_ANSWERS.md` and `POST_ASSIGNMENT_ANSWERS.md` files in the repo to answer the pre and post assignment questions
+3. [ ] Create main page of the application
+4. [ ] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
+5. [ ] Allow users to select a repository from the search bar to add the repository to the repository list and graph
+6. [ ] Display a graph that compares the last year of commit activity grouped by week for each selected repository
+7. [ ] Implement the hover state and allow the user to remove a repository from the repository list
+
+## Environment Variables
+
+- `PORT` (default: `3000`):
+  - The app can be accessed at `http://localhost:{PORT}`
+  - If the specified port is not open, it'll prompt to connect to the next available port.
+- `BROWSER` (default: `system`):
+  - Set to `none` to prevent from opening a new tab on each app start
 
 ## Available Scripts
 
@@ -41,6 +78,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Read more about:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+  - [Main Documentation](https://reactjs.org/)
+  - [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
+  - [CRACO](https://craco.js.org/docs/)
