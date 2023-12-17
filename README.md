@@ -78,7 +78,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-Read more about:
+Read more about the technologies and libraries used in this project:
 
 - React
   - [Main Documentation](https://reactjs.org/)
@@ -86,3 +86,6 @@ Read more about:
   - [CRACO](https://craco.js.org/docs/)
 - CSS Reset
   - [modern-normalize](https://github.com/sindresorhus/modern-normalize)
+- Feather Icons
+  - [react-feather](https://github.com/feathericons/react-feather)
+  - [Website](https://feathericons.com)
