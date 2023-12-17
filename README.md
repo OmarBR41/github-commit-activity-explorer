@@ -24,7 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Tasks
 
 1. [x] Create a `README.md` file with instructions on how to run the app
-2. [ ] Create `PRE_ASSIGNMENT_ANSWERS.md` and `POST_ASSIGNMENT_ANSWERS.md` files in the repo to answer the pre and post assignment questions
+2. [x] Create `PRE_ASSIGNMENT_ANSWERS.md` and `POST_ASSIGNMENT_ANSWERS.md` files in the repo to answer the pre and post assignment questions
 3. [ ] Create main page of the application
 4. [ ] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
 5. [ ] Allow users to select a repository from the search bar to add the repository to the repository list and graph
