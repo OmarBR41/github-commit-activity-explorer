@@ -1,18 +1,37 @@
 .Home {
-  text-align: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 60vh 1fr;
+  grid-template-columns: 1fr;
 }
 
-.Home-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Home-sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem 1.25rem;
+  font-size: 1rem;
   color: white;
+  background-color: #37374a;
 }
 
-.Home-link {
-  color: #61dafb;
+.Home-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 4rem;
+}
+
+@media (min-width: 768px) {
+  .Home {
+    grid-template-rows: 1fr;
+    grid-template-columns: 60vw 1fr;
+  }
+
+  .Home-sidebar {
+    padding: 3rem 2rem;
+  }
 }
