@@ -34,3 +34,9 @@
     padding: 3rem 2rem;
   }
 }
+
+.SearchRepositories {
+  position: relative;
+  width: 100%;
+  color: var(--primary);
+}

@@ -1,0 +1,38 @@
+.SearchResults {
+  position: absolute;
+  top: calc(100% - 0.25rem);
+  left: 0;
+  width: 100%;
+  max-height: 20rem;
+
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background-color: var(--background);
+  padding: 0.25rem 0;
+  margin: 0;
+  border-radius: 0 0 0.25rem 0.25rem;
+  overflow-y: scroll;
+}
+
+.SearchResults-empty {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 1rem 0;
+  color: var(--secondary);
+}
+
+.SearchItem {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.SearchItem:hover {
+  background-color: var(--background-accent);
+}
