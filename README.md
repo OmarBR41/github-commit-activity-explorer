@@ -84,3 +84,5 @@ Read more about:
   - [Main Documentation](https://reactjs.org/)
   - [Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
   - [CRACO](https://craco.js.org/docs/)
+- CSS Reset
+  - [modern-normalize](https://github.com/sindresorhus/modern-normalize)
