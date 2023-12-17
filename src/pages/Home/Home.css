@@ -13,8 +13,7 @@
   flex-direction: column;
   padding: 2rem 1.25rem;
   font-size: 1rem;
-  color: white;
-  background-color: #37374a;
+  background-color: var(--primary);
 }
 
 .Home-logo {

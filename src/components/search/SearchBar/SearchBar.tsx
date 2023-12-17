@@ -12,7 +12,7 @@ export const SearchBar = ({ placeholder = 'Search...', onChange }: SearchBarProp
     <div className="SearchBar">
       <input className="SearchBar-input" placeholder={placeholder} onChange={onChange} />
       <div className="SearchBar-icon">
-        <Search color="#37374A" />
+        <Search />
       </div>
     </div>
   );

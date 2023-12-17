@@ -11,7 +11,6 @@
 
   font-size: 1rem;
   font-weight: 400;
-  color: #37374a;
 
   border: none;
   border-radius: 0.25rem;
@@ -22,29 +21,30 @@
 }
 
 .SearchBar-input[::-webkit-input-placeholder] {
-  color: #8383af;
+  color: var(--secondary);
 }
 
 .SearchBar-input[::-moz-placeholder] {
-  color: #8383af;
+  color: var(--secondary);
 }
 
 .SearchBar-input[:-ms-input-placeholder] {
-  color: #8383af;
+  color: var(--secondary);
 }
 
 .SearchBar-input[::-ms-input-placeholder] {
-  color: #8383af;
+  color: var(--secondary);
 }
 
 .SearchBar-input[::placeholder] {
-  color: #8383af;
+  color: var(--secondary);
 }
 
 .SearchBar-icon {
   position: absolute;
   top: 50%;
   right: 1rem;
+  color: var(--primary);
   transform: translateY(-50%);
   pointer-events: none;
 }
