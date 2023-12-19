@@ -1,8 +1,10 @@
+import { SearchResult } from '@/types/search';
+
 import './SearchResults.css';
 
 type SearchResultsProps = {
-  results?: any[] | null;
-  renderCustomContent?: (item: any) => JSX.Element;
+  results?: SearchResult[] | null;
+  renderCustomContent?: (item: SearchResult) => JSX.Element;
 };
 
 export const SearchResults = ({ results, renderCustomContent }: SearchResultsProps) => {
@@ -12,7 +14,7 @@ export const SearchResults = ({ results, renderCustomContent }: SearchResultsPro
 
   const isEmpty = results.length === 0;
 
-  const renderItems = (item: any, idx: number) => {
+  const renderItems = (item: SearchResult, idx: number) => {
     const itemId = item?.id ?? idx;
     const itemText = item?.name ?? item?.id ?? JSON.stringify(item);
 
