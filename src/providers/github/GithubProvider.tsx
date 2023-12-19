@@ -70,6 +70,11 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
     setSearchResults(null);
   };
 
+  const removeRepo = (repoId: number) => {
+    const newRepos = selectedRepos.filter((repo) => repo.id !== repoId);
+    setSelectedRepos(newRepos);
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -78,6 +83,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
         fetchRepos,
         fetchStats,
         closeResults,
+        removeRepo,
       }}
     >
       {children}

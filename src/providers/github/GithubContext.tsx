@@ -8,6 +8,7 @@ export const INITIAL_GITHUB_CTX_VALUE: GithubContextType = {
   fetchRepos: () => undefined,
   fetchStats: () => undefined,
   closeResults: () => undefined,
+  removeRepo: () => undefined,
 };
 
 export const GithubContext = createContext<GithubContextType>(INITIAL_GITHUB_CTX_VALUE);

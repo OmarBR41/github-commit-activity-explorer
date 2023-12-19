@@ -5,6 +5,7 @@ export type GithubContextType = {
   fetchRepos: (query: string) => void;
   fetchStats: (repo: GithubRepo) => void;
   closeResults: () => void;
+  removeRepo: (repoId: number) => void;
 };
 
 // -- Selected --

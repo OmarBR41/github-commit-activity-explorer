@@ -25,6 +25,7 @@ export const SelectedRepos = () => {
 };
 
 const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
+  const { removeRepo } = useGithub();
   const { id, name, owner, updated_at, totalCommits, color } = repo;
 
   const updatedAt = new Date(updated_at);
@@ -51,7 +52,7 @@ const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
       <Trash2
         className='RepoItem-deleteBtn'
         onClick={() => {
-          alert(id);
+          removeRepo(id);
         }}
       />
     </div>
