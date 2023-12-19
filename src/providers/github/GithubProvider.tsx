@@ -56,6 +56,12 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
 
     fetchRepoStats?.(url).then((data) => {
       const stats = data as GithubRepoStatsResponse;
+
+      if (Object.keys(stats).length === 0) {
+        alert('Error adding repository, it had no commit activity this past year');
+        return;
+      }
+
       addRepo({ ...repo, stats, color: randomColor() });
     });
   };
