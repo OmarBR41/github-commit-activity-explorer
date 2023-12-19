@@ -3,6 +3,16 @@ export type GithubContextType = {
   fetchRepos: (query: string) => void;
 };
 
+// -- Stats --
+export type GithubRepoStatsResponse = GithubRepoStats[];
+
+export type GithubRepoStats = {
+  days: number[];
+  total: number;
+  week: number;
+};
+
+// -- Repos --
 export type GithubRepoResponse = {
   total_count: number;
   incomplete_results: boolean;

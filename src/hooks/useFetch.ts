@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { GithubRepoResponse, GithubStatsResponse } from '@/types/github';
+import { GithubRepoResponse, GithubRepoStatsResponse } from '@/types/github';
 
 import { useDebounce } from './useDebounce';
 
-type FetchData = GithubRepoResponse | GithubStatsResponse;
+type FetchData = GithubRepoResponse | GithubRepoStatsResponse;
 
 type DebounceOptions = {
   delay?: number;
