@@ -1,5 +1,6 @@
 import { Search, Star, Trash2 } from 'react-feather';
 
+import { formatNumber } from '@/lib/utils';
 import { useGithub } from '@/providers/github';
 import { GithubSelectedRepo } from '@/types/github';
 
@@ -43,7 +44,7 @@ const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
       <div className='RepoItem-bottom'>
         <p className='RepoItem-commits'>
           <Star className='RepoItem-commitsIcon' />
-          {stargazers_count}
+          {formatNumber(stargazers_count)}
         </p>
 
         <p className='RepoItem-lastUpdatedAt'>{lastUpdatedAt}</p>
