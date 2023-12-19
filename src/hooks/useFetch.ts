@@ -1,8 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { GithubRepoResponse } from '@/types/github';
+import { GithubRepoResponse, GithubStatsResponse } from '@/types/github';
 
-type FetchData = GithubRepoResponse;
+import { useDebounce } from './useDebounce';
+
+type FetchData = GithubRepoResponse | GithubStatsResponse;
+
+type DebounceOptions = {
+  delay?: number;
+};
 
 export type useFetchState = {
   data?: FetchData;
@@ -13,16 +19,20 @@ export type useFetchState = {
 
 export type useFetchConfig = {
   options?: RequestInit;
+  debounce?: boolean | DebounceOptions;
 };
 
 export const useFetch = (initialUrl: string, config?: useFetchConfig): useFetchState => {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | string | null>(null);
+  // apply debounce if enabled
+  const debouncedUrl = useDebounce(initialUrl, (config?.debounce as DebounceOptions)?.delay);
+  const [urlToFetch, setUrlToFetch] = useState<string>(config?.debounce ? String(debouncedUrl) : initialUrl);
 
   const fetchData = useCallback(
     async (newUrl?: string, options?: RequestInit) => {
-      const url = newUrl ?? initialUrl;
+      const url = newUrl ?? urlToFetch;
 
       // throw error on empty request
       if (url === '') {
@@ -61,6 +71,16 @@ export const useFetch = (initialUrl: string, config?: useFetchConfig): useFetchS
 
     fetchData(initialUrl).catch((err) => console.error(err));
   }, [fetchData, initialUrl]);
+
+  useEffect(() => {
+    const isDebounced = config?.debounce && Boolean(debouncedUrl);
+
+    if (!isDebounced) {
+      return;
+    }
+
+    setUrlToFetch(String(debouncedUrl));
+  }, [config?.debounce, debouncedUrl]);
 
   return { data, isLoading, error, fetchData };
 };
