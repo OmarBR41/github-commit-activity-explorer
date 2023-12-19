@@ -1,3 +1,5 @@
+import { format, formatDistance } from 'date-fns';
+
 export const formatNumber = (num: number): string => {
   const formatter = Intl.NumberFormat('en', { notation: 'compact' });
   return formatter.format(num);
@@ -12,3 +14,13 @@ export function parseJSON<T>(value: string | null): T | undefined {
     return undefined;
   }
 }
+
+export const formatTimeDistance = (date: Date) => {
+  const today = new Date();
+
+  if (today.getFullYear() !== date.getFullYear()) {
+    return format(date, "'on' MMMM dd, yyyy");
+  }
+
+  return formatDistance(date, today, { addSuffix: true });
+};

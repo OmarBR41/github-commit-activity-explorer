@@ -1,6 +1,6 @@
 import { Search, Star, Trash2 } from 'react-feather';
 
-import { formatNumber } from '@/lib/utils';
+import { formatNumber, formatTimeDistance } from '@/lib/utils';
 import { useGithub } from '@/providers/github';
 import { GithubSelectedRepo } from '@/types/github';
 
@@ -30,7 +30,7 @@ const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
   const { id, name, owner, updated_at, stargazers_count, color, html_url } = repo;
 
   const updatedAt = new Date(updated_at);
-  const lastUpdatedAt = updatedAt.toLocaleString();
+  const lastUpdatedAt = `Updated ${formatTimeDistance(updatedAt)}`;
 
   return (
     <div className='RepoItem'>
