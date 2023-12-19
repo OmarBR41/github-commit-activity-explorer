@@ -28,7 +28,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 3. [x] Create main page of the application
 4. [x] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
 5. [x] Allow users to select a repository from the search bar to add the repository to the repository list and graph
-6. [ ] Display a graph that compares the last year of commit activity grouped by week for each selected repository
+6. [x] Display a graph that compares the last year of commit activity grouped by week for each selected repository
 7. [ ] Implement the hover state
 8. [x] Allow the user to remove a repository from the repository list
 
@@ -96,3 +96,6 @@ Read more about the technologies and libraries used in this project:
   - [Main Documentation](https://docs.github.com/en)
   - [Search Repositories API](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories)
   - [Repository Statistics API](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#get-the-last-year-of-commit-activity)
+- Recharts
+  - [Documentation](https://recharts.org/en-US)
+  - [Github](https://github.com/recharts/recharts)

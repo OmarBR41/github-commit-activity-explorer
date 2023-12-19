@@ -4,6 +4,7 @@ import randomColor from 'randomcolor';
 import { useFetch } from '@/hooks/useFetch';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { GITHUB_API_TOKEN } from '@/lib/constants';
+import { ChartData } from '@/types/chart';
 import { GithubRepo, GithubRepoResponse, GithubRepoStatsResponse, GithubSelectedRepo } from '@/types/github';
 
 import { GithubContext } from './GithubContext';
@@ -29,6 +30,8 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
     debounce: true,
   });
   const { fetchData: fetchRepoStats } = useFetch(undefined, { options: GithubFetchOptions });
+
+  const [chartData, setChartData] = useLocalStorage<ChartData>('chartData', {});
 
   useEffect(() => {
     if (!search?.data) {
@@ -60,6 +63,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   const addRepo = (repo: GithubSelectedRepo) => {
     const newRepos = [...selectedRepos, repo];
     setSelectedRepos(newRepos);
+    addChartData(repo);
   };
 
   const closeResults = () => {
@@ -71,9 +75,31 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
     setSelectedRepos(newRepos);
   };
 
+  const addChartData = (repo: GithubSelectedRepo) => {
+    if (Object.keys(repo?.stats).length === 0) {
+      return;
+    }
+
+    const newChartData = Object.assign({}, chartData);
+
+    repo.stats.forEach(({ total, week }) => {
+      const currWeek = newChartData[week];
+      console.log(currWeek);
+      if (currWeek) {
+        newChartData[week][repo.name] = total;
+      } else {
+        newChartData[week] = {
+          [repo.name]: total,
+        };
+      }
+    });
+    setChartData(newChartData);
+  };
+
   return (
     <GithubContext.Provider
       value={{
+        chartData,
         selectedRepos,
         search: {
           results: searchResults,

@@ -3,6 +3,7 @@ import { createContext, useContext } from 'react';
 import { GithubContextType } from '@/types/github';
 
 export const INITIAL_GITHUB_CTX_VALUE: GithubContextType = {
+  chartData: {},
   selectedRepos: [],
   search: {
     results: null,

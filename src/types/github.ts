@@ -1,7 +1,10 @@
 import { FetchError } from '@/hooks/useFetch';
 
+import { ChartData } from './chart';
+
 // -- Context --
 export type GithubContextType = {
+  chartData: ChartData;
   selectedRepos: GithubSelectedRepo[];
   search: {
     results: GithubRepo[] | null;
