@@ -1,0 +1,27 @@
+.CustomTooltip {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1rem;
+
+  font-size: 0.875rem;
+  text-align: center;
+
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: var(--box-shadow);
+  z-index: 10;
+}
+
+.CustomTooltip-label {
+  margin-bottom: 0.25rem;
+  color: var(--lightGray);
+  font-weight: 400;
+}
+
+.CustomTooltip-payload {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--primary);
+  font-weight: 700;
+}

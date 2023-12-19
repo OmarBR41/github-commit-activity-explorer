@@ -1,4 +1,4 @@
-import { format, formatDistance } from 'date-fns';
+import { format, formatDistance, nextMonday, setWeek } from 'date-fns';
 
 export const formatNumber = (num: number): string => {
   const formatter = Intl.NumberFormat('en', { notation: 'compact' });
@@ -23,4 +23,14 @@ export const formatTimeDistance = (date: Date) => {
   }
 
   return formatDistance(date, today, { addSuffix: true });
+};
+
+export const formatWeek = (week: number) => {
+  return format(
+    setWeek(nextMonday(new Date()), week, {
+      weekStartsOn: 1,
+      firstWeekContainsDate: 4,
+    }),
+    "'Week of' MMM dd, yyyy"
+  );
 };

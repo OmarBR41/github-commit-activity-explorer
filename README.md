@@ -29,7 +29,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. [x] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
 5. [x] Allow users to select a repository from the search bar to add the repository to the repository list and graph
 6. [x] Display a graph that compares the last year of commit activity grouped by week for each selected repository
-7. [ ] Implement the hover state
+7. [x] Implement the hover state
 8. [x] Allow the user to remove a repository from the repository list
 
 ## Environment Variables
