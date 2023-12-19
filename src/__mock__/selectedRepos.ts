@@ -12,7 +12,6 @@ export const MOCK_SELECTED_REPOS: GithubSelectedRepo[] = [
         week: 1336280400,
       },
     ],
-    totalCommits: 89,
     color: '#71b7f8',
   },
 ];

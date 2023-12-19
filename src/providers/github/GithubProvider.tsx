@@ -3,13 +3,7 @@ import randomColor from 'randomcolor';
 
 import { useFetch } from '@/hooks/useFetch';
 import { GITHUB_API_TOKEN } from '@/lib/constants';
-import {
-  GithubRepo,
-  GithubRepoResponse,
-  GithubRepoStats,
-  GithubRepoStatsResponse,
-  GithubSelectedRepo,
-} from '@/types/github';
+import { GithubRepo, GithubRepoResponse, GithubRepoStatsResponse, GithubSelectedRepo } from '@/types/github';
 
 import { GithubContext } from './GithubContext';
 
@@ -55,10 +49,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
 
     fetchRepoStats(url).then((data) => {
       const stats = data as GithubRepoStatsResponse;
-      const totalCommits = Array.isArray(stats)
-        ? stats.reduce((acc: number, curr: GithubRepoStats) => acc + Number(curr?.total), 0)
-        : 0;
-      addRepo({ ...repo, stats, totalCommits, color: randomColor() });
+      addRepo({ ...repo, stats, color: randomColor() });
     });
   };
 

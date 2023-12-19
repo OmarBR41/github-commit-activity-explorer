@@ -26,7 +26,7 @@ export const SelectedRepos = () => {
 
 const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
   const { removeRepo } = useGithub();
-  const { id, name, owner, updated_at, totalCommits, color, html_url } = repo;
+  const { id, name, owner, updated_at, stargazers_count, color, html_url } = repo;
 
   const updatedAt = new Date(updated_at);
   const lastUpdatedAt = updatedAt.toLocaleString();
@@ -43,7 +43,7 @@ const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
       <div className='RepoItem-bottom'>
         <p className='RepoItem-commits'>
           <Star className='RepoItem-commitsIcon' />
-          {totalCommits}
+          {stargazers_count}
         </p>
 
         <p className='RepoItem-lastUpdatedAt'>{lastUpdatedAt}</p>

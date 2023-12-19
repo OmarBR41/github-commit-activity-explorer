@@ -11,7 +11,6 @@ export type GithubContextType = {
 // -- Selected --
 export type GithubSelectedRepo = GithubRepo & {
   stats: GithubRepoStatsResponse;
-  totalCommits: number;
   color: string;
 };
 
