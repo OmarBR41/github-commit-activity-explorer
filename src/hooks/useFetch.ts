@@ -10,10 +10,12 @@ type DebounceOptions = {
   delay?: number;
 };
 
+export type FetchError = Error | string | null;
+
 export type useFetchState = {
   data?: FetchData;
   isLoading: boolean;
-  error?: Error | string | null;
+  error?: FetchError;
   fetchData: (url: string) => Promise<FetchData>;
 };
 
@@ -66,6 +68,8 @@ export const useFetch = (initialUrl?: string, config?: useFetchConfig): useFetch
 
         const errMessage = String(err) ?? 'Unknown error while fetching';
         setError(errMessage);
+      } finally {
+        setIsLoading(false);
       }
     },
     [config?.options]

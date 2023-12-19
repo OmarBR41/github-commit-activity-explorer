@@ -9,7 +9,12 @@ import { RepoSearchItem } from '../RepoSearchItem';
 import './SearchRepos.css';
 
 export const SearchRepos = () => {
-  const { searchResults, fetchRepos, closeResults, fetchStats } = useGithub();
+  const {
+    search: { results, isLoading },
+    fetchRepos,
+    closeResults,
+    fetchStats,
+  } = useGithub();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -43,9 +48,10 @@ export const SearchRepos = () => {
         placeholder='Search a GitHub Repository...'
       />
       <SearchResults
-        results={searchResults}
+        results={results}
         renderCustomContent={(item: GithubRepo) => <RepoSearchItem {...(item as GithubRepo)} />}
         onItemClick={onItemClick}
+        isLoading={isLoading}
       />
     </div>
   );

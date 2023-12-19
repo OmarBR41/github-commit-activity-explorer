@@ -1,19 +1,21 @@
+import { Spinner } from '@/components/ui/Spinner/Spinner';
 import { SearchResult } from '@/types/search';
 
 import './SearchResults.css';
 
 type SearchResultsProps = {
+  isLoading?: boolean;
   results?: SearchResult[] | null;
   renderCustomContent?: (item: SearchResult) => JSX.Element;
   onItemClick?: (item: SearchResult) => void;
 };
 
-export const SearchResults = ({ results, renderCustomContent, onItemClick }: SearchResultsProps) => {
-  if (!results) {
+export const SearchResults = ({ isLoading, results, renderCustomContent, onItemClick }: SearchResultsProps) => {
+  if (!results && !isLoading) {
     return <></>;
   }
 
-  const isEmpty = results.length === 0;
+  const isEmpty = results && results.length === 0;
 
   const renderItems = (item: SearchResult, idx: number) => {
     const itemId = item?.id ?? idx;
@@ -26,11 +28,25 @@ export const SearchResults = ({ results, renderCustomContent, onItemClick }: Sea
     );
   };
 
-  return (
-    <ul className='SearchResults'>
-      {isEmpty && <p className='SearchResults-empty'>No repositories found, try with another query</p>}
+  const renderContent = () => {
+    if (isLoading) {
+      return (
+        <div className='SearchResults-loading'>
+          <Spinner />
+        </div>
+      );
+    }
 
-      {!isEmpty && results.map(renderItems)}
-    </ul>
-  );
+    if (isEmpty) {
+      return <p className='SearchResults-empty'>No repositories found, try with another query</p>;
+    }
+
+    if (!results?.length) {
+      return <></>;
+    }
+
+    return <>{results.map(renderItems)}</>;
+  };
+
+  return <ul className='SearchResults'>{renderContent()}</ul>;
 };

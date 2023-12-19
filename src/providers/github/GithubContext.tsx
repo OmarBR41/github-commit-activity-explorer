@@ -4,7 +4,11 @@ import { GithubContextType } from '@/types/github';
 
 export const INITIAL_GITHUB_CTX_VALUE: GithubContextType = {
   selectedRepos: [],
-  searchResults: null,
+  search: {
+    results: null,
+    isLoading: false,
+    error: undefined,
+  },
   fetchRepos: () => undefined,
   fetchStats: () => undefined,
   closeResults: () => undefined,

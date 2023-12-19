@@ -37,3 +37,9 @@
 .SearchItem:hover {
   background-color: var(--background-accent);
 }
+
+.SearchResults-loading {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0;
+}

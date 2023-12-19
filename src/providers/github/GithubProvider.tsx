@@ -24,17 +24,20 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   const [searchResults, setSearchResults] = useState<GithubRepo[] | null>(null);
   const [searchUrl, setSearchUrl] = useState<string | undefined>(undefined);
 
-  const { data: searchData } = useFetch(searchUrl, { options: GithubFetchOptions, debounce: true });
+  const search = useFetch(searchUrl, {
+    options: GithubFetchOptions,
+    debounce: true,
+  });
   const { fetchData: fetchRepoStats } = useFetch(undefined, { options: GithubFetchOptions });
 
   useEffect(() => {
-    if (!searchData) {
+    if (!search?.data) {
       return;
     }
 
-    const items = (searchData as GithubRepoResponse)?.items ?? null;
+    const items = (search?.data as GithubRepoResponse)?.items ?? null;
     setSearchResults(items);
-  }, [searchData]);
+  }, [search?.data]);
 
   const fetchRepos = (query: string) => {
     if (query === '') {
@@ -48,7 +51,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchStats = (repo: GithubRepo) => {
     const url = `${REPO_STATS_API}/${repo.owner.login}/${repo.name}/stats/commit_activity`;
 
-    fetchRepoStats(url).then((data) => {
+    fetchRepoStats?.(url).then((data) => {
       const stats = data as GithubRepoStatsResponse;
       addRepo({ ...repo, stats, color: randomColor() });
     });
@@ -72,7 +75,11 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
     <GithubContext.Provider
       value={{
         selectedRepos,
-        searchResults,
+        search: {
+          results: searchResults,
+          isLoading: search.isLoading,
+          error: search.error,
+        },
         fetchRepos,
         fetchStats,
         closeResults,

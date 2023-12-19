@@ -1,7 +1,13 @@
+import { FetchError } from '@/hooks/useFetch';
+
 // -- Context --
 export type GithubContextType = {
   selectedRepos: GithubSelectedRepo[];
-  searchResults: GithubRepo[] | null;
+  search: {
+    results: GithubRepo[] | null;
+    isLoading: boolean;
+    error?: FetchError;
+  };
   fetchRepos: (query: string) => void;
   fetchStats: (repo: GithubRepo) => void;
   closeResults: () => void;
