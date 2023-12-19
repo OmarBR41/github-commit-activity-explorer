@@ -52,8 +52,7 @@ export const MOCK_SEARCH_REPOS_RES = {
       assignees_url: 'https://api.github.com/repos/dtrupenn/Tetris/assignees{/user}',
       blobs_url: 'https://api.github.com/repos/dtrupenn/Tetris/git/blobs{/sha}',
       branches_url: 'https://api.github.com/repos/dtrupenn/Tetris/branches{/branch}',
-      collaborators_url:
-        'https://api.github.com/repos/dtrupenn/Tetris/collaborators{/collaborator}',
+      collaborators_url: 'https://api.github.com/repos/dtrupenn/Tetris/collaborators{/collaborator}',
       comments_url: 'https://api.github.com/repos/dtrupenn/Tetris/comments{/number}',
       commits_url: 'https://api.github.com/repos/dtrupenn/Tetris/commits{/sha}',
       compare_url: 'https://api.github.com/repos/dtrupenn/Tetris/compare/{base}...{head}',
@@ -75,8 +74,7 @@ export const MOCK_SEARCH_REPOS_RES = {
       languages_url: 'https://api.github.com/repos/dtrupenn/Tetris/languages',
       merges_url: 'https://api.github.com/repos/dtrupenn/Tetris/merges',
       milestones_url: 'https://api.github.com/repos/dtrupenn/Tetris/milestones{/number}',
-      notifications_url:
-        'https://api.github.com/repos/dtrupenn/Tetris/notifications{?since,all,participating}',
+      notifications_url: 'https://api.github.com/repos/dtrupenn/Tetris/notifications{?since,all,participating}',
       pulls_url: 'https://api.github.com/repos/dtrupenn/Tetris/pulls{/number}',
       releases_url: 'https://api.github.com/repos/dtrupenn/Tetris/releases{/id}',
       ssh_url: 'git@github.com:dtrupenn/Tetris.git',

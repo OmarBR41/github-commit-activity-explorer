@@ -1,4 +1,3 @@
-import React from 'react';
 import './SearchResults.css';
 
 type SearchResultsProps = {
@@ -25,10 +24,8 @@ export const SearchResults = ({ results, renderCustomContent }: SearchResultsPro
   };
 
   return (
-    <ul className="SearchResults">
-      {isEmpty && (
-        <p className="SearchResults-empty">No repositories found, try with another query</p>
-      )}
+    <ul className='SearchResults'>
+      {isEmpty && <p className='SearchResults-empty'>No repositories found, try with another query</p>}
 
       {!isEmpty && results.map(renderItems)}
     </ul>

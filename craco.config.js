@@ -1,9 +1,10 @@
-const path = require('path');
+import { resolve } from 'path';
 
-module.exports = {
-  webpack: {
-    alias: {
-      '@': path.resolve(__dirname, 'src/'),
-    },
+export const eslint = {
+  mode: 'file',
+};
+export const webpack = {
+  alias: {
+    '@': resolve(__dirname, 'src/'),
   },
 };
