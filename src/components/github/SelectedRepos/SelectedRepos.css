@@ -28,9 +28,11 @@
   position: relative;
   width: 100%;
   padding: 1rem 1.5rem;
+  padding-right: 2.5rem;
   color: white;
   background-color: var(--background-darker);
   border-radius: 0.5rem;
+  text-overflow: ellipsis;
   overflow: hidden;
 }
 
@@ -49,6 +51,7 @@
   font-size: 1.125rem;
   font-weight: 700;
   text-decoration: none;
+  text-wrap: nowrap;
 }
 
 .RepoItem-name:hover {
