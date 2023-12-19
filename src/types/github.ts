@@ -4,6 +4,7 @@ export type GithubContextType = {
   searchResults: GithubRepo[] | null;
   fetchRepos: (query: string) => void;
   fetchStats: (repo: GithubRepo) => void;
+  closeResults: () => void;
 };
 
 // -- Selected --

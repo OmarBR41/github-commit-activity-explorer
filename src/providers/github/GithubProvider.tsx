@@ -32,6 +32,11 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   const { fetchData: fetchRepoStats } = useFetch('', { options: GithubFetchOptions });
 
   const fetchRepos = (query: string) => {
+    if (query === '') {
+      closeResults();
+      return;
+    }
+
     const url = `${SEARCH_REPO_API}?q=${query}`;
 
     fetchSearchRepos(url).then((data) => {
@@ -54,6 +59,10 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
     setSelectedRepos((prevRepos) => [...prevRepos, repo]);
   };
 
+  const closeResults = () => {
+    setSearchResults(null);
+  };
+
   return (
     <GithubContext.Provider
       value={{
@@ -61,6 +70,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
         searchResults,
         fetchRepos,
         fetchStats,
+        closeResults,
       }}
     >
       {children}

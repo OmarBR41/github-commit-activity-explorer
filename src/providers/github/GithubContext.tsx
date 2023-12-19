@@ -7,6 +7,7 @@ export const INITIAL_GITHUB_CTX_VALUE: GithubContextType = {
   searchResults: null,
   fetchRepos: () => undefined,
   fetchStats: () => undefined,
+  closeResults: () => undefined,
 };
 
 export const GithubContext = createContext<GithubContextType>(INITIAL_GITHUB_CTX_VALUE);
