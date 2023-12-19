@@ -1,4 +1,5 @@
 import React from 'react';
+import { Search } from 'react-feather';
 
 import './SearchBar.css';
 
