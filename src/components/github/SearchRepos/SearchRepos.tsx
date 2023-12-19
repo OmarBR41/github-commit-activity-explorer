@@ -9,9 +9,18 @@ import { RepoSearchItem } from '../RepoSearchItem';
 import './SearchRepos.css';
 
 export const SearchRepos = () => {
-  const { searchResults, fetchRepos, fetchStats } = useGithub();
+  const { searchResults, fetchRepos, closeResults, fetchStats } = useGithub();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleClear = () => {
+    setQuery('');
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+
+    closeResults();
+  };
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const newValue = e.target.value;
@@ -21,6 +30,7 @@ export const SearchRepos = () => {
 
   const onItemClick = (repo: GithubRepo) => {
     fetchStats(repo);
+    handleClear();
   };
 
   return (
