@@ -19,7 +19,7 @@ export const SearchResults = ({ results, renderCustomContent }: SearchResultsPro
     const itemText = item?.name ?? item?.id ?? JSON.stringify(item);
 
     return (
-      <li key={`search_result_${itemId}`} className="SearchItem">
+      <li key={`search_result_${itemId}`} className='SearchItem'>
         {renderCustomContent?.(item) ?? <p>{itemText}</p>}
       </li>
     );
