@@ -50,7 +50,9 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
 
     fetchRepoStats(url).then((data) => {
       const stats = data as GithubRepoStatsResponse;
-      const totalCommits = stats.reduce((acc: number, curr: GithubRepoStats) => acc + curr.total, 0);
+      const totalCommits = Array.isArray(stats)
+        ? stats.reduce((acc: number, curr: GithubRepoStats) => acc + Number(curr?.total), 0)
+        : 0;
       addRepo({ ...repo, stats, totalCommits, color: randomColor() });
     });
   };
