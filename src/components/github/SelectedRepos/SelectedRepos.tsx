@@ -26,7 +26,7 @@ export const SelectedRepos = () => {
 
 const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
   const { removeRepo } = useGithub();
-  const { id, name, owner, updated_at, totalCommits, color } = repo;
+  const { id, name, owner, updated_at, totalCommits, color, html_url } = repo;
 
   const updatedAt = new Date(updated_at);
   const lastUpdatedAt = updatedAt.toLocaleString();
@@ -35,10 +35,10 @@ const RepoItem = ({ repo }: { repo: GithubSelectedRepo }) => {
     <div className='RepoItem'>
       <div className='RepoItem-colorTag' style={{ backgroundColor: color }} />
 
-      <p className='RepoItem-name'>
+      <a className='RepoItem-name' href={html_url} target='_blank' rel='noreferrer'>
         <span className='RepoItem-owner'>{owner.login} / </span>
         {name}
-      </p>
+      </a>
 
       <div className='RepoItem-bottom'>
         <p className='RepoItem-commits'>

@@ -44,8 +44,16 @@
 }
 
 .RepoItem-name {
+  position: relative;
+  color: inherit;
   font-size: 1.125rem;
   font-weight: 700;
+  text-decoration: none;
+}
+
+.RepoItem-name:hover {
+  color: var(--blue);
+  text-decoration: underline;
 }
 
 .RepoItem-bottom {
