@@ -35,7 +35,13 @@ export const SearchRepos = () => {
 
   return (
     <div className='SearchRepos'>
-      <SearchBar ref={inputRef} value={query} onChange={onChange} placeholder='Search a GitHub Repository...' />
+      <SearchBar
+        ref={inputRef}
+        value={query}
+        onChange={onChange}
+        handleClear={handleClear}
+        placeholder='Search a GitHub Repository...'
+      />
       <SearchResults
         results={searchResults}
         renderCustomContent={(item: GithubRepo) => <RepoSearchItem {...(item as GithubRepo)} />}

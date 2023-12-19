@@ -7,7 +7,7 @@
   width: 100%;
   margin: 0;
   padding: 1rem;
-  padding-right: 2.5rem;
+  padding-right: 4rem;
 
   font-size: 1rem;
   font-weight: 400;
@@ -40,11 +40,31 @@
   color: var(--secondary);
 }
 
-.SearchBar-icon {
+.SearchBar-icons {
   position: absolute;
   top: 50%;
   right: 1rem;
   color: var(--primary);
   transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.SearchBar-closeIcon--hidden {
+  display: none;
+}
+
+.SearchBar-closeIcon {
+  width: 1.5rem;
+  color: var(--light);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.SearchBar-closeIcon:hover {
+  color: var(--secondary);
+}
+
+.SearchBar-searchIcon {
   pointer-events: none;
 }
