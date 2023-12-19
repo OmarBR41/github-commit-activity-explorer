@@ -1,10 +1,13 @@
-import { resolve } from 'path';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
 
-export const eslint = {
-  mode: 'file',
-};
-export const webpack = {
-  alias: {
-    '@': resolve(__dirname, 'src/'),
+module.exports = {
+  eslint: {
+    mode: 'file',
+  },
+  webpack: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
 };
