@@ -1,6 +1,8 @@
+import { GithubRepoResponse } from '@/types/github';
+
 // Example response from GitHub's Search Repositories API
 // https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories
-export const MOCK_SEARCH_REPOS_RES = {
+export const MOCK_SEARCH_REPOS_RES: GithubRepoResponse = {
   total_count: 40,
   incomplete_results: false,
   items: [

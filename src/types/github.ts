@@ -1,6 +1,14 @@
+// -- Context --
 export type GithubContextType = {
   searchResults: GithubRepo[] | null;
   fetchRepos: (query: string) => void;
+};
+
+// -- Selected --
+export type GithubSelectedRepo = GithubRepo & {
+  stats: GithubRepoStatsResponse;
+  totalCommits: number;
+  color: string;
 };
 
 // -- Stats --
