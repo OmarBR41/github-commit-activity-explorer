@@ -9,7 +9,7 @@ import { RepoSearchItem } from '../RepoSearchItem';
 import './SearchRepos.css';
 
 export const SearchRepos = () => {
-  const { searchResults, fetchRepos } = useGithub();
+  const { searchResults, fetchRepos, fetchStats } = useGithub();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -19,12 +19,17 @@ export const SearchRepos = () => {
     fetchRepos(newValue);
   };
 
+  const onItemClick = (repo: GithubRepo) => {
+    fetchStats(repo);
+  };
+
   return (
     <div className='SearchRepos'>
       <SearchBar ref={inputRef} value={query} onChange={onChange} placeholder='Search a GitHub Repository...' />
       <SearchResults
         results={searchResults}
         renderCustomContent={(item: GithubRepo) => <RepoSearchItem {...(item as GithubRepo)} />}
+        onItemClick={onItemClick}
       />
     </div>
   );

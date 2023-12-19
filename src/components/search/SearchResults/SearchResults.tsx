@@ -5,9 +5,10 @@ import './SearchResults.css';
 type SearchResultsProps = {
   results?: SearchResult[] | null;
   renderCustomContent?: (item: SearchResult) => JSX.Element;
+  onItemClick?: (item: SearchResult) => void;
 };
 
-export const SearchResults = ({ results, renderCustomContent }: SearchResultsProps) => {
+export const SearchResults = ({ results, renderCustomContent, onItemClick }: SearchResultsProps) => {
   if (!results) {
     return <></>;
   }
@@ -19,7 +20,7 @@ export const SearchResults = ({ results, renderCustomContent }: SearchResultsPro
     const itemText = item?.name ?? item?.id ?? JSON.stringify(item);
 
     return (
-      <li key={`search_result_${itemId}`} className='SearchItem'>
+      <li key={`search_result_${itemId}`} className='SearchItem' onClick={() => onItemClick?.(item)}>
         {renderCustomContent?.(item) ?? <p>{itemText}</p>}
       </li>
     );
