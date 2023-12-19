@@ -1,3 +1,8 @@
+export type GithubContextType = {
+  searchResults: GithubRepo[] | null;
+  fetchRepos: (query: string) => void;
+};
+
 export type GithubRepoResponse = {
   total_count: number;
   incomplete_results: boolean;

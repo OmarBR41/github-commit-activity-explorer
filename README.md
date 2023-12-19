@@ -38,6 +38,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - If the specified port is not open, it'll prompt to connect to the next available port.
 - `BROWSER` (default: `system`):
   - Set to `none` to prevent from opening a new tab on each app start
+- `REACT_APP_GITHUB_API_TOKEN` (required):
+  - A token provided by GitHub to authenticate the API request
 
 ## Available Scripts
 
@@ -89,3 +91,7 @@ Read more about the technologies and libraries used in this project:
 - Feather Icons
   - [react-feather](https://github.com/feathericons/react-feather)
   - [Website](https://feathericons.com)
+- GitHub API
+  - [Main Documentation](https://docs.github.com/en)
+  - [Search Repositories API](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28#search-repositories)
+  - [Repository Statistics API](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#get-the-last-year-of-commit-activity)
