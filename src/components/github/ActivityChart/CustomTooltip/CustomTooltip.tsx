@@ -11,7 +11,7 @@ export const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType
     return <></>;
   }
 
-  const week = formatWeek(label);
+  const week = label ? formatWeek(Number(label)) : label;
 
   return (
     <div className='CustomTooltip'>
