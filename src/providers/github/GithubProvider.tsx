@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import randomColor from 'randomcolor';
 
 import { useFetch } from '@/hooks/useFetch';
@@ -27,9 +27,19 @@ const GithubFetchOptions = {
 export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   const [selectedRepos, setSelectedRepos] = useState<GithubSelectedRepo[]>([]);
   const [searchResults, setSearchResults] = useState<GithubRepo[] | null>(null);
+  const [searchUrl, setSearchUrl] = useState<string | undefined>(undefined);
 
-  const { fetchData: fetchSearchRepos } = useFetch('', { options: GithubFetchOptions, debounce: true });
-  const { fetchData: fetchRepoStats } = useFetch('', { options: GithubFetchOptions });
+  const { data: searchData } = useFetch(searchUrl, { options: GithubFetchOptions, debounce: true });
+  const { fetchData: fetchRepoStats } = useFetch(undefined, { options: GithubFetchOptions });
+
+  useEffect(() => {
+    if (!searchData) {
+      return;
+    }
+
+    const items = (searchData as GithubRepoResponse)?.items ?? null;
+    setSearchResults(items);
+  }, [searchData]);
 
   const fetchRepos = (query: string) => {
     if (query === '') {
@@ -37,12 +47,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    const url = `${SEARCH_REPO_API}?q=${query}`;
-
-    fetchSearchRepos(url).then((data) => {
-      const items = (data as GithubRepoResponse)?.items ?? null;
-      setSearchResults(items);
-    });
+    setSearchUrl(`${SEARCH_REPO_API}?q=${query}`);
   };
 
   const fetchStats = (repo: GithubRepo) => {

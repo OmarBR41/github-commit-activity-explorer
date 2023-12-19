@@ -22,17 +22,24 @@ export type useFetchConfig = {
   debounce?: boolean | DebounceOptions;
 };
 
-export const useFetch = (initialUrl: string, config?: useFetchConfig): useFetchState => {
+export const useFetch = (initialUrl?: string, config?: useFetchConfig): useFetchState => {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | string | null>(null);
+
   // apply debounce if enabled
   const debouncedUrl = useDebounce(initialUrl, (config?.debounce as DebounceOptions)?.delay);
-  const [urlToFetch, setUrlToFetch] = useState<string>(config?.debounce ? String(debouncedUrl) : initialUrl);
+  const isDebounced = config?.debounce && Boolean(debouncedUrl);
+
+  const [urlToFetch, setUrlToFetch] = useState<string | undefined>(isDebounced ? String(debouncedUrl) : initialUrl);
 
   const fetchData = useCallback(
     async (newUrl?: string, options?: RequestInit) => {
-      const url = newUrl ?? urlToFetch;
+      const url = newUrl ?? initialUrl;
+
+      if (url === undefined) {
+        return;
+      }
 
       // throw error on empty request
       if (url === '') {
@@ -65,16 +72,14 @@ export const useFetch = (initialUrl: string, config?: useFetchConfig): useFetchS
   );
 
   useEffect(() => {
-    if (!initialUrl) {
+    if (!urlToFetch) {
       return;
     }
 
-    fetchData(initialUrl).catch((err) => console.error(err));
-  }, [fetchData, initialUrl]);
+    void fetchData(urlToFetch);
+  }, [urlToFetch]);
 
   useEffect(() => {
-    const isDebounced = config?.debounce && Boolean(debouncedUrl);
-
     if (!isDebounced) {
       return;
     }
