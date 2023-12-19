@@ -99,3 +99,6 @@ Read more about the technologies and libraries used in this project:
 - Recharts
   - [Documentation](https://recharts.org/en-US)
   - [Github](https://github.com/recharts/recharts)
+- date-fns
+  - [Documentation](https://date-fns.org)
+  - [Github](https://github.com/date-fns/date-fns)
