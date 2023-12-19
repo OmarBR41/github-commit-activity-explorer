@@ -3,18 +3,21 @@ import { Search } from 'react-feather';
 
 import './SearchBar.css';
 
-type SearchBarProps = {
-  placeholder?: string;
-  onChange?: React.ChangeEventHandler;
+type SearchBarProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
+  value: string;
 };
 
-export const SearchBar = ({ placeholder = 'Search...', onChange }: SearchBarProps) => {
+const SearchBar = React.forwardRef<HTMLInputElement, SearchBarProps>((props, ref) => {
   return (
-    <div className="SearchBar">
-      <input className="SearchBar-input" placeholder={placeholder} onChange={onChange} />
-      <div className="SearchBar-icon">
+    <div className='SearchBar'>
+      <input ref={ref} className='SearchBar-input' {...props} />
+      <div className='SearchBar-icon'>
         <Search />
       </div>
     </div>
   );
-};
+});
+
+SearchBar.displayName = 'SearchBar';
+
+export { SearchBar };
