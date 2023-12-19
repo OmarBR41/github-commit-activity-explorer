@@ -25,11 +25,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. [x] Create a `README.md` file with instructions on how to run the app
 2. [x] Create `PRE_ASSIGNMENT_ANSWERS.md` and `POST_ASSIGNMENT_ANSWERS.md` files in the repo to answer the pre and post assignment questions
-3. [ ] Create main page of the application
-4. [ ] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
-5. [ ] Allow users to select a repository from the search bar to add the repository to the repository list and graph
+3. [x] Create main page of the application
+4. [x] Create an autocomplete search bar to that allows users to search for a repository by the repositories name
+5. [x] Allow users to select a repository from the search bar to add the repository to the repository list and graph
 6. [ ] Display a graph that compares the last year of commit activity grouped by week for each selected repository
-7. [ ] Implement the hover state and allow the user to remove a repository from the repository list
+7. [ ] Implement the hover state
+8. [x] Allow the user to remove a repository from the repository list
 
 ## Environment Variables
 
