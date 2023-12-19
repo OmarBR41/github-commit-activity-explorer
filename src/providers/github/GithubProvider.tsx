@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import randomColor from 'randomcolor';
 
 import { useFetch } from '@/hooks/useFetch';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { GITHUB_API_TOKEN } from '@/lib/constants';
 import { GithubRepo, GithubRepoResponse, GithubRepoStatsResponse, GithubSelectedRepo } from '@/types/github';
 
@@ -19,7 +20,7 @@ const GithubFetchOptions = {
 };
 
 export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedRepos, setSelectedRepos] = useState<GithubSelectedRepo[]>([]);
+  const [selectedRepos, setSelectedRepos] = useLocalStorage<GithubSelectedRepo[]>('selectedRepos', []);
   const [searchResults, setSearchResults] = useState<GithubRepo[] | null>(null);
   const [searchUrl, setSearchUrl] = useState<string | undefined>(undefined);
 
@@ -54,7 +55,8 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const addRepo = (repo: GithubSelectedRepo) => {
-    setSelectedRepos((prevRepos) => [...prevRepos, repo]);
+    const newRepos = [...selectedRepos, repo];
+    setSelectedRepos(newRepos);
   };
 
   const closeResults = () => {
