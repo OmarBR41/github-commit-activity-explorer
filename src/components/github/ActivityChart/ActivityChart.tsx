@@ -3,6 +3,8 @@ import { Line } from 'recharts';
 import { Chart } from '@/components/chart/Chart';
 import { useGithub } from '@/providers/github';
 
+import { CustomTooltip } from './CustomTooltip';
+
 import './ActivityChart.css';
 
 export const ActivityChart = () => {
@@ -18,7 +20,9 @@ export const ActivityChart = () => {
 
   return (
     <div className='ActivityChart'>
-      <Chart data={data}>{renderGraphLines()}</Chart>
+      <Chart data={data} customTooltip={<CustomTooltip />}>
+        {renderGraphLines()}
+      </Chart>
     </div>
   );
 };
