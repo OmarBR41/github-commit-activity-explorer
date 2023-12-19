@@ -1,5 +1,6 @@
 // -- Context --
 export type GithubContextType = {
+  selectedRepos: GithubSelectedRepo[];
   searchResults: GithubRepo[] | null;
   fetchRepos: (query: string) => void;
 };

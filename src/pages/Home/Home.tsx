@@ -1,4 +1,5 @@
 import { SearchRepos } from '@/components/github/SearchRepos';
+import { SelectedRepos } from '@/components/github/SelectedRepos';
 import { Logo } from '@/components/ui/Logo';
 import { GithubProvider } from '@/providers/github/GithubProvider';
 
@@ -12,6 +13,7 @@ export const Home = () => {
 
         <div className='Home-sidebar'>
           <SearchRepos />
+          <SelectedRepos />
         </div>
 
         <div className='Home-logo'>

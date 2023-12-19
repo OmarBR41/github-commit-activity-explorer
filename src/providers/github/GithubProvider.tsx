@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useFetch } from '@/hooks/useFetch';
 import { GITHUB_API_TOKEN } from '@/lib/constants';
-import { GithubRepo, GithubRepoResponse } from '@/types/github';
+import { GithubRepo, GithubRepoResponse, GithubSelectedRepo } from '@/types/github';
 
 import { GithubContext } from './GithubContext';
 
@@ -17,6 +17,7 @@ const GithubFetchOptions = {
 };
 
 export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
+  const [selectedRepos, setSelectedRepos] = useState<GithubSelectedRepo[]>([]);
   const [searchResults, setSearchResults] = useState<GithubRepo[] | null>(null);
 
   const { fetchData: fetchSearchRepos } = useFetch('', { options: GithubFetchOptions, debounce: true });
@@ -33,6 +34,7 @@ export const GithubProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <GithubContext.Provider
       value={{
+        selectedRepos,
         searchResults,
         fetchRepos,
       }}

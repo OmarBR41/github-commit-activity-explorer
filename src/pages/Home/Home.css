@@ -11,9 +11,12 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   padding: 2rem 1.25rem;
   font-size: 1rem;
   background-color: var(--primary);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .Home-logo {

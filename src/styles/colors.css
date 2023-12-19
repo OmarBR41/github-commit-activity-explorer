@@ -1,8 +1,14 @@
 :root {
   --background: #ffffff;
   --background-accent: #ececf6;
+  --background-dark: #242432;
+  --background-darker: #272736;
 
   --primary: #37374a;
   --secondary: #8383af;
   --light: #bcbcf2;
+
+  --green: #4cca8d;
+  --red: #d65c5c;
+  --blue: #71b7f8;
 }
