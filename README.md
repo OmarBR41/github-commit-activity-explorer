@@ -1,10 +1,6 @@
 # GitHub Commit Activity Explorer
 
-This is a code assignment by MetaLab for the position of Software Engineer (Web).
-
-The task is to build an SPA using React and Webpack, along with any other tool that may be needed.
-
-The app should allow the user to search public GitHub repositories through an input with autocomplete, showing the results on a popup. Selected repositories will get added to a graph, displaying their commit activity of the last year by weekly intervals.
+The app allows the user to search public GitHub repositories through an input with autocomplete, showing the results on a popup. Selected repositories will get added to a graph, displaying their commit activity of the last year by weekly intervals.
 
 <img src="./docs/assets/mockup.png" alt="Mock Design" width="600"/>
 
